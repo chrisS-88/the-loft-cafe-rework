@@ -1,0 +1,7 @@
+---
+const { direction = "up", speed = "1100", delay = "0", class: className = "" } = Astro.props;
+---
+
+<div class={`fade-in fade-in-start ${className}`} data-direction={direction} data-speed={speed} data-delay={delay}>
+  <slot />
+</div>

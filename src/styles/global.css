@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NAVBAR BURGER BTN */
+@layer components {
+  .hamburger-bar {
+    @apply block h-0.5 w-6 bg-black duration-300;
+  }
+}
+
+/* FADE IN ANIMATIONS  */
+
+/* Final position (default) */
+.fade-in {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition-property: opacity, transform;
+  transition-duration: 1000ms;
+  transition-timing-function: ease;
+}
+
+/* Starting offset */
+.fade-in-start {
+  opacity: 0;
+}
+
+/* Directions */
+.fade-in-start[data-direction="up"] {
+  transform: translateY(120px);
+}
+.fade-in-start[data-direction="down"] {
+  transform: translateY(-60px);
+}
+.fade-in-start[data-direction="left"] {
+  transform: translateX(900px);
+}
+.fade-in-start[data-direction="right"] {
+  transform: translateX(-600px);
+}
+
+/* Speeds */
+.fade-in[data-speed="400"] {
+  transition-duration: 400ms;
+}
+.fade-in[data-speed="600"] {
+  transition-duration: 600ms;
+}
+.fade-in[data-speed="1000"] {
+  transition-duration: 1000ms;
+}
+
+/* Delays */
+.fade-in[data-delay="400"] {
+  transition-delay: 400ms;
+}
+.fade-in[data-delay="800"] {
+  transition-delay: 800ms;
+}
+.fade-in[data-delay="1200"] {
+  transition-delay: 1200ms;
+}

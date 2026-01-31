@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import hero from "../assets/images/home_images/main_hero.jpg";
+import Button from "../components/Button.astro";
+import FavoriteCard from "../components/FavoriteCard.astro";
+import { favorites } from "../data/favorites.js";
+import fiveRise from "../assets/images/home_images/five_rise.webp";
+import FadeIn from "../components/FadeIn.astro";
+---
+
+<BaseLayout title="The Loft | Bingley">
+  <!-- HERO -->
+
+  <section class="h-[80vh] relative mt-10">
+    <Image src={hero} alt="Latte art image" class="absolute w-full h-full object-cover" />
+    <div class="inset-0 h-full absolute bg-gradient-to-b from-coffee-900/80 to-coffee-900/60"></div>
+
+    <div class="relative h-full px-6 mx-auto md:max-w-4xl gap-4 flex flex-col justify-center text-center text-cream">
+      <h1 class="font-heading text-3xl md:text-5xl">Your cosy coffee spot in the heart of Bingley.</h1>
+      <!-- <FadeIn> -->
+      <FadeIn class="text-xl text-cream/80"
+        >Freshly made food, great coffee, and a friendly, family‑run atmosphere — right by the canal.</FadeIn
+      >
+      <!-- </FadeIn> -->
+
+      <FadeIn delay="400" class="flex justify-center gap-6 pt-8">
+        <Button href="menu" title="View Menu" variant="main" />
+        <Button href="visitUs" title="Visit Us" variant="dark" />
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- FAVORITES -->
+
+  <section class="py-24 bg-cream">
+    <div class="px-6 max-w-5xl mx-auto">
+      <p class="text-sage-500 tracking-wide font-semibold uppercase mb-2">Customer Favourites</p>
+      <h2 class="text-3xl md:text-4xl font-heading mb-4">The dishes our regulars keep coming back for</h2>
+      <h3 class="max-w-2xl text-coffee-700 mb-12">
+        A selection of our most‑loved coffees, cakes, and homemade dishes — crafted fresh every day.
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-16 md:px-6">
+        {
+          favorites.map((item) => (
+            <div class="flex justify-center">
+              <a href="/menu">
+                <FavoriteCard image={item.image} alt={item.alt} title={item.title} />
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+
+  <section class="py-20 bg-cream">
+    <FadeIn class="px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-sage-500 tracking-wide font-semibold uppercase mb-2">Our Story</p>
+        <h2 class="text-3xl md:text-4xl font-heading mb-4">A cosy, family‑run café by the canal</h2>
+        <h3 class="text-coffee-700 mb-8">
+          Since opening our doors in 2010, The Loft Café Bar has been a welcoming spot for locals, walkers, and visitors exploring Bingley.
+          We’re a small, family‑run team serving homemade food, great coffee, and friendly service — all from our warm, relaxed space above
+          the canal.
+        </h3>
+        <Button href="/ourStory" title="Read Our Story" variant="light" />
+      </div>
+
+      <div>
+        <Image src={fiveRise} alt="Bingley five rise locks" class="rounded-xl shadow-md" />
+      </div>
+    </FadeIn>
+  </section>
+</BaseLayout>

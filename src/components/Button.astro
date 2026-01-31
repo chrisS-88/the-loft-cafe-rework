@@ -1,0 +1,11 @@
+---
+const { title, href, variant = "light" } = Astro.props;
+
+const variants = {
+  light: "text-coffee-900 border-2 border-rust-500",
+  dark: "text-cream border-2 border-cream",
+  main: "text-cream bg-rust-500 border-2 border-transparent",
+};
+---
+
+<a href={href} class=`w-max text-lg rounded-lg px-4 py-2 font-heading ${variants[variant]}`>{title}</a>
