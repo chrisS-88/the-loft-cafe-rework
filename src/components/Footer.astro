@@ -1,3 +1,54 @@
-<footer class="py-12 text-center text-dark/60 text-sm">
-  © {new Date().getFullYear()} Your Company Name
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.png";
+---
+
+<footer class="bg-coffee-900 text-cream py-16">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+    <!-- Logo -->
+    <div class="md:col-span-1">
+      <Image src={logo} alt="The Loft Café Bar" class="h-16 w-auto mb-4" />
+      <p class="text-cream/80 text-sm">Warm coffee, homemade food, in the center of Bingley.</p>
+    </div>
+
+    <!-- Opening Hours -->
+    <div>
+      <h3 class="font-serif text-xl mb-4">Opening Hours</h3>
+      <ul class="space-y-1 text-cream/80 text-sm">
+        <li>Monday – Friday: 8.30am – 4pm</li>
+        <li>Saturday: 9am – 4pm</li>
+        <li>Sunday: 9.30am – 2pm</li>
+      </ul>
+    </div>
+
+    <!-- Address -->
+    <div>
+      <h3 class="font-serif text-xl mb-4">Find Us</h3>
+      <p class="text-cream/80 text-sm leading-relaxed">
+        The Loft Café Bar<br />
+        127 Main Street<br />
+        Bingley, BD16
+      </p>
+    </div>
+
+    <!-- Socials -->
+    <div>
+      <h3 class="font-serif text-xl mb-4">Follow Us</h3>
+      <ul class="space-y-2 text-cream/80 text-sm">
+        <li><a href="https://www.instagram.com/the.loftcafebarbingley/" target="_blank" class="hover:text-sage-500">Instagram</a></li>
+        <li>
+          <a href="https://www.facebook.com/people/The-Loft-Cafe-Bar/100027932636922/" target="_blank" class="hover:text-sage-500"
+            >Facebook</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Copy -->
+  <p class="text-center text-sm text-cream/80 mt-12">&copy; {new Date().getFullYear()} The Loft Cafe</p>
+
+  <!-- Credit -->
+  <div class="mt-4 text-center text-cream/60 text-sm">
+    Site crafted by <a href="https://penninedigital.netlify.app/" target="_blank" class="text-cream hover:text-sage-500">Pennine Digital</a>
+  </div>
 </footer>

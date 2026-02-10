@@ -6,6 +6,7 @@ import Button from "../components/Button.astro";
 import FavoriteCard from "../components/FavoriteCard.astro";
 import { favorites } from "../data/favorites.js";
 import fiveRise from "../assets/images/home_images/five_rise.webp";
+import mapPreview from "../assets/images/home_images/mapPreview.png";
 import FadeIn from "../components/FadeIn.astro";
 ---
 
@@ -18,11 +19,9 @@ import FadeIn from "../components/FadeIn.astro";
 
     <div class="relative h-full px-6 mx-auto md:max-w-4xl gap-4 flex flex-col justify-center text-center text-cream">
       <h1 class="font-heading text-3xl md:text-5xl">Your cosy coffee spot in the heart of Bingley.</h1>
-      <!-- <FadeIn> -->
       <FadeIn class="text-xl text-cream/80"
         >Freshly made food, great coffee, and a friendly, family‑run atmosphere — right by the canal.</FadeIn
       >
-      <!-- </FadeIn> -->
 
       <FadeIn delay="400" class="flex justify-center gap-6 pt-8">
         <Button href="menu" title="View Menu" variant="main" />
@@ -41,7 +40,7 @@ import FadeIn from "../components/FadeIn.astro";
         A selection of our most‑loved coffees, cakes, and homemade dishes — crafted fresh every day.
       </h3>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-16 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
         {
           favorites.map((item) => (
             <div class="flex justify-center">
@@ -70,9 +69,84 @@ import FadeIn from "../components/FadeIn.astro";
         <Button href="/ourStory" title="Read Our Story" variant="light" />
       </div>
 
-      <div>
+      <div class="px-6">
         <Image src={fiveRise} alt="Bingley five rise locks" class="rounded-xl shadow-md" />
       </div>
     </FadeIn>
+  </section>
+
+  <!-- OPENING HOURS -->
+
+  <section class="bg-stone-300 py-20">
+    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-serif text-coffee-900 mb-6">Opening Hours</h2>
+
+        <ul class="space-y-2 text-coffee-700">
+          <li class="flex justify-between border-b border-stone-600/20 pb-2">
+            <span>Monday – Friday</span>
+            <span>8.30am – 4pm</span>
+          </li>
+          <li class="flex justify-between border-b border-stone-600/20 pb-2">
+            <span>Saturday</span>
+            <span>9am – 4pm</span>
+          </li>
+          <li class="flex justify-between border-b border-stone-600/20 pb-2">
+            <span>Sunday <span class="text-sm text-coffee-500">(Breakfast Menu Only)</span></span>
+            <span>9.30am – 2pm</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUICK INFO -->
+
+      <div>
+        <h2 class="text-3xl font-serif text-coffee-900 mb-6">Quick Info</h2>
+
+        <div class="space-y-6 text-coffee-700">
+          <div>
+            <p class="font-semibold text-coffee-900">Address</p>
+            <p>The Loft Café Bar<br />127 Main Street <br /> Bingley<br /> BD16 2HT <br /></p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-coffee-900">Dog Friendly</p>
+            <p>Yes — well‑behaved dogs welcome.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-coffee-900">Parking</p>
+            <p>Short‑stay parking nearby. Bingley station is a 3‑minute walk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT US -->
+
+  <section class="bg-cream py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-sage-700 font-semibold tracking-wide uppercase mb-2">Visit Us</p>
+
+      <h2 class="text-3xl md:text-4xl font-heading text-coffee-900 mb-4">Find us right in heart of Bingley town centre</h2>
+
+      <p class="text-coffee-700 max-w-2xl mx-auto mb-12">
+        We’re just a short walk from Bingley train station, with parking nearby and plenty of scenic spots along the canal.
+      </p>
+
+      <!-- Map Preview -->
+      <div class="rounded-lg overflow-hidden shadow-md mb-8 md:w-2/3 mx-auto">
+        <a href="/visitUs">
+          <Image src={mapPreview} alt="Map preview of The Loft Cafe location" />
+        </a>
+      </div>
+      <a
+        href="https://maps.google.com/?q=The+Loft+Cafe+Bar+Bingley"
+        target="_blank"
+        class="text-sage-700 font-semibold hover:text-sage-500 transition">
+        Get Directions →
+      </a>
+    </div>
   </section>
 </BaseLayout>
