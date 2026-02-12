@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 const { title = "Website Title" } = Astro.props;
@@ -17,6 +18,7 @@ const { title = "Website Title" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
     <title>{title}</title>
   </head>
 
@@ -26,22 +28,8 @@ const { title = "Website Title" } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <script>
-      const els = document.querySelectorAll(".fade-in");
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("fade-in-start");
-            observer.unobserve(entry.target);
-          }
-        });
-      });
-
-      els.forEach((el) => {
-        el.classList.add("fade-in-start");
-        observer.observe(el);
-      });
-    </script>
+    <!-- ANIMATE ON SCROLL -->
+    <script type="module" src="/src/scripts/aos.js"></script>
   </body>
 </html>
