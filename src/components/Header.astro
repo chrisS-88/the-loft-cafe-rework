@@ -38,27 +38,30 @@ import logo from "../assets/images/logo.png";
     <!-- Mobile Sidebar -->
     <div
       id="mobile-menu"
-      class="p-4 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-sage-200/40 backdrop-blur-md transform -translate-x-full transition-all duration-700 ease-in-out opacity-0 overflow-y-scroll">
-      <p class="text-3xl text-center">The Loft</p>
-      <p class="text-md text-center">Cafe Bar</p>
+      class="p-4 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-cream/95 backdrop-blur-md transform -translate-x-full transition-all duration-700 ease-in-out opacity-0 overflow-y-scroll">
+      <!-- Header -->
+      <div class="text-center" data-animate>
+        <p class="text-3xl font-heading text-coffee-900">The Loft</p>
+        <p class="text-md text-coffee-700">Cafe Bar</p>
+      </div>
 
       <div class="w-full h-[.5px] bg-sage-500/60 mt-6"></div>
 
+      <!-- Nav Links -->
       <ul class="flex flex-col justify-center gap-6 text-2xl px-4 py-24">
         {
-          navLinks.map((link, i) => {
-            return (
-              <li>
-                <NavLink href={link.href} label={link.label} />
-              </li>
-            );
-          })
+          navLinks.map((link, i) => (
+            <li class="fade-up" data-animate data-delay={`${i * 100 + 50}`}>
+              <NavLink href={link.href} label={link.label} />
+            </li>
+          ))
         }
       </ul>
 
       <div class="w-full h-[.5px] bg-sage-500/60 mb-6"></div>
 
-      <div class="capitalize text-xs">
+      <!-- Footer -->
+      <div class="capitalize text-xs text-coffee-700 text-center" data-animate data-delay="300">
         <div class="mt-16">
           <p>© {new Date().getFullYear()} The Loft Cafe</p>
         </div>
@@ -151,7 +154,7 @@ import logo from "../assets/images/logo.png";
     menuBtn?.addEventListener("click", toggleMenu);
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
     initNav();
     initMobileMenu();
   });
