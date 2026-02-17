@@ -1,4 +1,4 @@
-function initScrollAnimations() {
+export default function initScrollAnimations() {
   const elements = document.querySelectorAll("[data-animate]");
 
   const observer = new IntersectionObserver(
