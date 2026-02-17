@@ -7,7 +7,7 @@ import logo from "../assets/images/logo.png";
 
 <header class="py-6">
   <nav
-    class="fixed top-0 left-0 w-full h-28 flex justify-between items-center px-16 font-heading tracking-wide uppercase z-50 bg-cream transition-transform duration-300 shadow-lg">
+    class="fixed top-0 left-0 w-full h-28 flex justify-between items-center px-6 md:px-16 font-heading tracking-wide uppercase z-50 bg-cream transition-transform duration-300 shadow-lg">
     <a href="/" class="font-heading text-xl font-semibold">
       <Image src={logo} alt="the loft logo" class="h-28 w-auto" />
     </a>
@@ -154,7 +154,7 @@ import logo from "../assets/images/logo.png";
     menuBtn?.addEventListener("click", toggleMenu);
   }
 
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     initNav();
     initMobileMenu();
   });
