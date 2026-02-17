@@ -27,8 +27,3 @@ export default function initScrollAnimations() {
 
   elements.forEach((el) => observer.observe(el));
 }
-
-// Run on first load and every ClientRouter navigation
-document.addEventListener("astro:page-load", () => {
-  initScrollAnimations();
-});
