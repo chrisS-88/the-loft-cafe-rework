@@ -1,12 +1,15 @@
 ---
-const { href, label, isLast } = Astro.props;
-const current = Astro.url.pathname;
+const { href, label } = Astro.props;
+
+// Normalise both paths by removing trailing slashes
+const normalise = (p: string) => p.replace(/\/+$/, "") || "/";
+
+const current = normalise(Astro.url.pathname);
+const target = normalise(href);
+
+const isActive = current === target;
 ---
 
-<a
-  href={href}
-  class={`hover:text-coffee-500 
-    ${current === href ? "border-b-2 pb-1 border-sage-700" : ""} 
-    `}>
+<a href={href} class={`hover:text-sage-700 ${isActive ? "text-sage-700 font-semibold" : ""}`}>
   {label}
 </a>

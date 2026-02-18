@@ -18,7 +18,7 @@ import logo from "../assets/images/logo.png";
         navLinks.map((link, i) => {
           return (
             <li>
-              <NavLink href={link.href} label={link.label} isLast={i === navLinks.length - 1} />
+              <NavLink href={link.href} label={link.label} />
             </li>
           );
         })
