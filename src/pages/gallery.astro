@@ -1,9 +1,32 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { galleryImages } from "../data/galleryImgs.js";
 ---
 
-<BaseLayout>
-  <section class="pt-24">
-    <h1>My Astro Template</h1>
+<BaseLayout title="The Loft | Gallery">
+  <section class="bg-cream pt-32 pb-24">
+    <div class="max-w-2xl px-6 mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-heading text-coffee-900 mb-4">Gallery</h1>
+      <p class="text-coffee-700">
+        From early‑morning brews to weekend brunches, here’s a look at the everyday moments that make The Loft Café special.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-cream pb-24">
+    <div class="columns-1 sm:columns-2 lg:columns-3 max-w-6xl mx-auto gap-4 px-4">
+      {
+        galleryImages.map((item) => (
+          <div class="group overflow-hidden mb-4 rounded-lg shadow-md break-inside-avoid" data-animate>
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              class="w-full transition-transform duration-300 group-hover:scale-105 brightness-[1.05] contrast-[1.05] saturate-[0.9] sepia-[0.15]"
+            />
+          </div>
+        ))
+      }
+    </div>
   </section>
 </BaseLayout>
