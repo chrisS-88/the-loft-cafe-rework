@@ -12,7 +12,7 @@ import mapPreview from "../assets/images/home_images/mapPreview.png";
 <BaseLayout title="The Loft | Bingley">
   <!-- HERO -->
   <section class="h-[80vh] relative mt-10">
-    <Image src={hero} alt="Latte art image" class="absolute w-full h-full object-cover" />
+    <Image src={hero} alt="Latte art image" loading="eager" class="absolute w-full h-full object-cover" />
     <div class="inset-0 h-full absolute bg-gradient-to-b from-coffee-900/80 to-coffee-900/60"></div>
 
     <div data-animate class="fade-up relative h-full px-6 mx-auto md:max-w-4xl gap-4 flex flex-col justify-center text-center text-cream">
@@ -21,7 +21,7 @@ import mapPreview from "../assets/images/home_images/mapPreview.png";
         Freshly made food, great coffee, and a friendly, family‑run atmosphere — right by the canal.
       </div>
 
-      <div class="flex justify-center gap-6 pt-8" data-delay="200">
+      <div class="flex justify-center gap-6 pt-8" data-animate data-delay="200">
         <Button href="menu" title="View Menu" variant="main" />
         <Button href="visitUs" title="Visit Us" variant="dark" />
       </div>
